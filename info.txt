@@ -1,0 +1,22 @@
+https://retoolapi.dev/DAuYMe/data
+See all available endpoints here (generated with json-server).
+Endpoint URL
+
+HTTP method endpoints
+
+GET
+/DAuYMe/data
+GET filter
+/DAuYMe/data?Persona=value
+GET by id
+/DAuYMe/data/1
+GET paginate
+/DAuYMe/data?_page=2&_limit=10
+POST
+/DAuYMe/data
+PUT
+/DAuYMe/data/1
+PATCH
+/DAuYMe/data/1
+DELETE
+/DAuYMe/data/1

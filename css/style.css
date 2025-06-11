@@ -1,0 +1,26 @@
+.add-button {
+    position: fixed; /* El botón queda encima del contenido, flotante*/
+
+    bottom:20px; /*Desde abajo, 20px */
+    right: 20px; /*Desde la derecha, 25px */
+    background-color: green; /*Color del botón verde */
+    color: white; /* Color del icono*/
+    border: none; /*Quitamos los bordes al boton */
+    border-radius: 50%; /*Hacemos circular el boton */
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex; /* Activamos flexbox*/
+    justify-content: center; /*Alineación horizontal */
+    align-items: center; /*Alineación vertical */
+    transition: 0.4s; /*Animación de durará 0.4 segundos */ 
+    z-index: 1001; /*Para que el botón siempre quede encima de todo */
+}
+
+.add-button:hover{
+    transform: scale(1.1); /*El botón crezca 1.1 veces su tamaño*/
+}
+
+.tabla-scroll {
+    overflow-x: auto; /*Scroll horizontal */
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Citas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li><b>Gestión de citas</b></li>
+            </ul>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Citas</a></li>
+                <li><a href="#">Mi perfil</a></li>
+                <li><a href="#" role="button">Cerrar sesión</a></li>
+            </ul>        
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h2>Citas agendadas</h2>
+        <!--Ponemos un scroll a la tabla-->
+        <div class="tabla-scroll">
+            <table id="tabla" class="overflow-auto">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Aqui va el cuerpo de la tabla, registros que vienen de la API-->
+                </tbody>
+
+            </table>
+
+        </div>
+    </main>
+
+    <!--Modal para agregar citas-->
+
+    <dialog id="modal-agregar">
+        <article>
+            <header>
+                <a href="#" class="close" id="btnCerrarModal"></a>
+                <h3>Agregar Citas</h3>
+            </header>
+
+            <form id="frmAgregar">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="datetime-local" id="fecha" required>
+                <button type="submit" class="contrast">Guardar</button>
+            </form>
+
+        </article>
+
+    </dialog>
+
+
+
+
+    <!--Boton flotante para agregar citas-->
+    <button class="add-button" id="btnAbrirModal" title="Agregar Cita">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+
+    </button>
+    <script src="js/script.js"></script>
+</body>
+</html>
