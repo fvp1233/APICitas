@@ -24,3 +24,7 @@
 .tabla-scroll {
     overflow-x: auto; /*Scroll horizontal */
 }
+
+.btn-editar{
+    margin-right: 50px;
+}

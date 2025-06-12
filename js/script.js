@@ -20,14 +20,16 @@ function mostrarDatos(datos){
 
     
     datos.forEach(cita => {
+        //Por cada fila insertada cambio el formato de la fecha para que me la muestre en aa/mm/yy y su respectiva hora
+        let fecha = new Date(cita.Fecha).toLocaleString();
         tabla.innerHTML +=  `
         <tr>
             <td>${cita.id}</td>
             <td>${cita.Persona}</td>
-            <td>${cita.Fecha}</td>
+            <td>${fecha}</td>
 
             <td>
-                <button onClick="">Editar </button>
+                <button onClick="abrirModalEditar(${cita.id} , '${cita.Persona}', '${cita.Fecha}')">Editar </button>
                 <button onClick="EliminarCita(${cita.id})">Eliminar </button>
             </td>
         </tr>
@@ -104,3 +106,64 @@ async function EliminarCita(id) {
         obtenerCitas();
     }
 }
+
+//Proceso para editar una cita
+const modalEditar = document.getElementById("modal-editar");
+const btnCerrarEditar = document.getElementById("btnCerrarEditar");
+
+btnCerrarEditar.addEventListener("click" , () => {
+    modalEditar.close(); //Cerrar el modal
+});
+
+function abrirModalEditar (id,Persona,Fecha){
+    let fecha2 = new Date(Fecha);
+
+     //Conversion de formato a YYYY-MM-DD HH:MM
+    const dia = fecha2.getDate().toString().padStart(2, '0');
+    const mes = (fecha2.getMonth() + 1).toString().padStart(2, '0');
+    const anio = fecha2.getFullYear();
+    const hora = fecha2.getHours().toString().padStart(2, '0');
+    const minuto = fecha2.getMinutes().toString().padStart(2, '0');
+
+    const fechaFormateada = `${anio}-${mes}-${dia} ${hora}:${minuto}`;
+
+    //Se agregan los valores del registro en los input
+    document.getElementById("idEditar").value = id;
+    document.getElementById("nombreEditar").value = Persona;
+    
+    document.getElementById("fechaEditar").value = fechaFormateada;
+    
+    //Modal se abre despues de agregar los valores del input
+    modalEditar.showModal();
+
+}
+
+document.getElementById("frmEditar").addEventListener("submit", async e => {
+    e.preventDefault(); //Evita que el formulario se envie
+    
+    const id = document.getElementById("idEditar").value;
+    const nombre = document.getElementById("nombreEditar").value.trim();
+    const fecha = document.getElementById("fechaEditar").value.trim();
+    
+    if(!id|| !nombre || !fecha){
+        alert("Complete todos los campos");
+        return; //Evita que el código se siga ejecutando
+    }
+
+        //Llamada a la API
+        const respuesta = await fetch(`${API_URL}/${id}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({Fecha: fecha, Persona: nombre})
+        });
+
+    if(respuesta.ok){
+        alert("Registro Actualizado con éxito");//Confirmación
+        modalEditar.close();//Cerramos el modal
+        obtenerCitas();//Actualizamos la lista
+    }
+    else{
+        alert("Hubo un error al actualizar");
+    }
+});
+
