@@ -1,0 +1,84 @@
+ body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; /* Fondo más suave */
+        }
+        .navbar {
+            background-color: #007bff; /* Azul primario */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Degradado moderno */
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom-left-radius: 50% 20px; /* Esquina curva para un toque visual */
+            border-bottom-right-radius: 50% 20px;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .hero-section p.lead {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+        .btn-call-to-action {
+            background-color: #28a745; /* Verde vibrante */
+            border-color: #28a745;
+            font-weight: bold;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px; /* Botón pill */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .btn-call-to-action:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+            transform: translateY(-2px); /* Pequeño efecto al pasar el mouse */
+        }
+        .features-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+        .feature-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .feature-card .icon {
+            font-size: 3.5rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            color: #343a40;
+            margin-bottom: 15px;
+        }
+        .about-section {
+            padding: 60px 0;
+            background-color: #e9f5ff; /* Azul claro */
+        }
+        .about-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
